@@ -1,0 +1,20 @@
+name: "Build"
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        submodules: true
+    - uses: silvenga-docker/build-image@latest
+      with:
+        workingPath: ./vendor/geemusic
+        dockerUserName: silvenga-docker
+        dockerPassword: ${{ secrets.GITHUB_TOKEN }}
+        dockerImageName: ${{ github.repository }}/geemusic
+        dockerTags: latest,${{ github.sha }}

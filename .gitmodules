@@ -1,0 +1,3 @@
+[submodule "vendor/geemusic"]
+	path = vendor/geemusic
+	url = https://github.com/stevenleeg/geemusic.git
